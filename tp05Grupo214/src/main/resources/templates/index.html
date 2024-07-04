@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link data-th-href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+	<header data-th-replace="~{/fragments/header::headerEdit}"></header>
+	  <div class="container-fluid">
+        <div class="row">
+            <main class="col-lg-9 p-2 bg-dark text-white">
+                <div id="inicio">
+                    <h1>Facultad de Ingeniería</h1><br>
+                    <p class="fw-medium">Una facultad, fundada el 24 de mayo de 1972, con accesibilidad a carreras de pregrado, grado y posgrado</p>
+                </div>
+                <div id="acerca">
+                    <p class="fw-medium">Las políticas de la Universidad Nacional de Jujuy, y especialmente de la Facultad de Ingeniería, 
+                    tienden a ampliar el área de influencia y a fortalecer su acción institucional, en respuesta a la demanda 
+                    social creciente de formación de recursos humanos que contribuyan al desarrollo científico, tecnológico y cultural</p>
+                    <p class="fw-medium">De esta forma, la Facultad se constituyó en vector de desarrollo de la provincia, por cuanto:</p>
+                    <ul class="list-group">
+                        <li class="list-group-item bg-dark text-white">Posibilita acceder a títulos universitarios a jóvenes 
+                        cuya situación económica les impide estudiar fuera de la provincia.</li>
+                        <li class="list-group-item bg-dark text-white">Provee de profesionales de la Ingeniería a las industrias radicadas en la provincia 
+                        y de profesionales competentes a las diversas reparticiones del estado provincial</li>
+                        <li class="list-group-item bg-dark text-white">Incorpora a la sociedad profesionales aptos para generar emprendimientos de distinta índole</li>
+                    </ul><br>
+                </div>
+                <div id="carreras">
+                    <h2>Carreras</h2><br>
+                    <h3>Carreras de grado:</h3>
+                    <ul class="list-group list-group-horizontal flex-wrap">
+                        <li class="list-group-item bg-dark text-white flex-fill">Ingeniería Química</li>
+                        <li class="list-group-item bg-dark text-white flex-fill">Ingeniería de Minas</li>
+                        <li class="list-group-item bg-dark text-white flex-fill">Ingeniería Industrial</li>
+                        <li class="list-group-item bg-dark text-white flex-fill">Ingeniería Informática</li>
+                        <li class="list-group-item bg-dark text-white flex-fill">Licenciatura en Sistemas</li>
+                        <li class="list-group-item bg-dark text-white flex-fill">Licenciatura en Tecnología de los Alimentos</li>
+                        <li class="list-group-item bg-dark text-white flex-fill">Licenciatura en Ciencias Geológicas</li>
+                    </ul><br>
+                    <h3>Carreras de pregrado:</h3>
+                    <ul class="list-group list-group-horizontal flex-wrap">
+                        <li class="list-group-item bg-dark text-white flex-fill">Analista Programador Universitario</li>
+                        <li class="list-group-item bg-dark text-white flex-fill">Tecnicatura Universitaria en Diseño Integral de Videojuegos</li>
+                        <li class="list-group-item bg-dark text-white flex-fill">Tecnicatura Universitaria en Perforaciones</li>
+                    </ul><br>
+                    <h3>Convenio UNT:</h3>
+                    <ul class="list-group list-group-horizontal flex-wrap">
+                        <li class="list-group-item bg-dark text-white flex-fill">Licenciatura en Biotecnología</li>
+                        <li class="list-group-item bg-dark text-white flex-fill">Licenciatura en Química</li>
+                        <li class="list-group-item bg-dark text-white flex-fill">Licenciatura en Bióquímica</li>
+                        <li class="list-group-item bg-dark text-white flex-fill">Licenciatura en Farmacia</li>
+                    </ul><br>
+                    <a class="btn btn-outline-info d-flex p-2 justify-content-center fw-bolder" role="button" href="https://www.fi.unju.edu.ar">Más Información</a>
+                </div>
+                <div id="noticias">
+                    <h2>Noticias:</h2>
+                    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="d-flex flex-column flex-md-row">
+                                    <img class="p-2 img-fluid" src="/images/vacunacion.png" alt="Error Cargando Imagen">
+                                    <p class="p-2 align-self-center fw-medium">El día 29 de mayo del corriente, en el Aula Pelayo Pena de la Escuela de Minas "Dr. Horacio Carrillo" de la UNJu, se realizará una Jornada de Vacunación destinada a Estudiantes, Personal Docentes y No Docente de la Universidad Nacional de Jujuy, en el horario de 09:00 a 15:30 horas</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="d-flex flex-column flex-md-row">
+                                    <img class="p-2 img-fluid" src="/images/ingenieria.png" alt="Error Cargando Imagen">
+                                    <p class="p-2 align-self-center fw-medium">Cada 6 de junio, rendimos homenaje a una de las profesiones más vitales para el desarrollo y bienestar de nuestra sociedad: la ingeniería. Esta fecha, establecida en conmemoración de la primera graduación de un ingeniero en el país en 1870, nos brinda la oportunidad de reflexionar sobre el impacto y la importancia de esta disciplina en nuestro día a día. La ingeniería es mucho más que una carrera; es el motor que impulsa el progreso tecnológico, económico y social. Los ingenieros y las ingenieras son los artífices de las infraestructuras que facilitan nuestra vida diaria, desde los puentes y carreteras que conectan nuestras ciudades hasta las innovaciones tecnológicas que transforman nuestras comunicaciones y nuestra manera de interactuar con el mundo</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="d-flex flex-column flex-md-row">
+                                    <img class="p-2 img-fluid" src="/images/semana.png" alt="Error Cargando Imagen">
+                                    <p class="p-2 align-self-center fw-medium">Será el 11, 12 y 13 de junio, y el tema de este año será la industria de alimentos y bebidas, bajo el lema "Argentina: de granero del mundo a las góndolas internacionales". Se llevará a cabo de forma presencial y vía streaming. La inscripción ya se encuentra abierta.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </main>
+            <aside class="col-lg-3 p-2 bg-primary-subtle text-primary-emphasis">
+                <h3>Recursos Adicionales</h3><br>
+                <div class="d-flex flex-column">
+                    <a class="p-2" href="https://www.fi.unju.edu.ar/servicios/biblioteca.html" target="_blank"> <img alt="Error Cargando Imagen" src="/images/biblioteca.png" class="img-fluid"></a><br>
+                    <a class="p-2" href="https://campus.fi.unju.edu.ar" target="_blank"> <img alt="Error Cargando Imagen" src="/images/campus_fi.png" class="img-fluid"></a><br>
+                    <a class="p-2" href="https://www.fi.unju.edu.ar/siu-guarani-alumnos" target="_blank"> <img alt="Error Cargando Imagen" src="/images/siu_guarani.png" class="img-fluid"></a><br>
+                    <a class="p-2" href="https://virtual.unju.edu.ar/" target="_blank"> <img alt="Error Cargando Imagen" src="/images/unjuvir.png" class="img-fluid" style="max-width: 175px;"></a><br>
+                </div>
+            </aside>
+        </div>
+    </div>
+	<footer data-th-replace="~{/fragments/footer::footerEdit}"></footer>
+	<script data-th-src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}" type="text/javascript"></script>
+</body>
+</html>
