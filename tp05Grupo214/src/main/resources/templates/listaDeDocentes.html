@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css">
+<title>Lista de Docentes</title>
+<style>
+	.container {
+		margin-top: 20px;
+	}
+	.table {
+		width: 100%;
+		border-collapse: collapse;
+		margin-bottom: 20px;
+	}
+	.table th, .table td {
+		border: 1px solid #dee2e6;
+		padding: 8px;
+		text-align: center;
+	}
+	.thead-dark {
+		background-color: #343a40;
+		color: white;
+	}
+	.btn-container {
+		white-space: nowrap;
+	}
+</style>
+</head>
+
+<body>
+<header th:replace="fragments/header :: headerEdit"></header>
+<div class="container mt-4">
+	<div class="container fs-4">
+		<h1 class="display-4 mb-4 text-center">Listado Docente</h1>
+		<table class="table table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">Legajo</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Apellido</th>
+					<th scope="col">Email</th>
+					<th scope="col">Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="docente : ${listadoDocentes}">
+					<td th:text="${docente.legajo}"></td>
+					<td th:text="${docente.nombre}"></td>
+					<td th:text="${docente.apellido}"></td>
+					<td th:text="${docente.email}"></td>
+					<td class="btn-container">
+						<a th:href="@{'/eliminarDocente/' + ${docente.legajo}}"
+							class="btn btn-danger">Eliminar</a>
+						<a th:href="@{'/modificarDocente/' + ${docente.legajo}}"
+							class="btn btn-warning">Modificar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<a href="/formularioDocente">
+			<button type="button" class="btn btn-primary">Volver al Formulario</button>
+		</a>
+	</div>
+</div>
+<footer>
+	<br>
+	<div th:replace="fragments/footer :: footerEdit"></div>
+</footer>
+<script src="/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
