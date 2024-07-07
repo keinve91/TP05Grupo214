@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css">
+<title>Formulario Carrera</title>
+<style>
+    body {
+        background-color: #DFDFDF; /* Color de fondo para el cuerpo de la página */
+    }
+    .mt-4 {
+        background-color: #ffffff; /* Color de fondo para el contenedor con mt-4 */
+        border-radius: 8px; /* Borde redondeado */
+        box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra ligera */
+        padding: 20px; /* Espaciado interno */
+    }
+</style>
+</head>
+<body>
+<header th:replace="~{/fragments/header :: headerEdit}"> </header>
+
+<div class="container mt-4">
+    <h1 class="display-4 mb-4 text-center">Formulario Carrera</h1>
+    <form th:object="${nuevaCarrera}" th:action="${bandera}?@{/modificarCarrera}:@{/guardarCarrera}" method="post" class="row g-3 border rounded p-4 bg-light">
+        <div class="col-md-6 mb-3">
+		    <label for="codigo" class="form-label">Código Carrera</label>
+		    <input type="text" class="form-control" id="codigo" th:field="*{codigo}" placeholder="cod_XX." th:readonly="${bandera}" th:classappend="${#fields.hasErrors('codigo')} ? 'is-invalid' : ''">
+		    <div class="invalid-feedback" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></div>
+		</div>
+
+        <div class="col-md-6 mb-3">
+            <label for="nombre" class="form-label">Nombre Carrera</label>
+            <input type="text" class="form-control" id="nombre" th:field="*{nombre}" placeholder="Ingrese un nombre." th:classappend="${#fields.hasErrors('nombre')} ? 'is-invalid' : ''">
+            <p class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></p>
+        </div>
+
+        <div class="col-md-6 mb-3">
+    <label for="cantidadAnios" class="form-label">Cantidad de Años</label>
+    <input type="number" class="form-control" id="cantidadAnios" th:field="*{cantidadAnios}" placeholder="Ingrese la cantidad de años" th:classappend="${#fields.hasErrors('cantidadAnios')} ? 'is-invalid' : ''">
+    <div class="invalid-feedback" th:if="${#fields.hasErrors('cantidadAnios')}" th:errors="*{cantidadAnios}"></div>
+</div>
+
+        <input type="hidden" id="estado" name="estado" class="form-control" th:field="*{estado}">
+
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Guardar Carrera</button>
+            <a href="/mostrarCarreras" class="btn btn-secondary ms-2">Ver Carreras</a>
+        </div>
+    </form>
+</div>
+
+<footer>
+    <br>
+    <div th:replace="~{/fragments/footer :: footerEdit}"></div>
+</footer>
+
+<script src="/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
