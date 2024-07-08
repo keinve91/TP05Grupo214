@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" data-th-href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+    <title>Lista de Alumnos</title>
+    <style>
+        body {
+            background-color: #DFDFDF;
+        }
+        .mt-4 {
+            background-color: #ffffff;
+            border-radius: 8px; 
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+            padding: 20px; 
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .table th, .table td {
+            border: 1px solid #dee2e6;
+            padding: 8px;
+            text-align: center;
+        }
+        .thead-dark {
+            background-color: #343a40;
+            color: white;
+        }
+        .btn-container {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <header data-th-replace="~{/fragments/header::headerEdit}"></header>
+    <div class="container mt-4">
+        <h1 class="display-4 mb-4 text-center">Lista de Alumnos</h1>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">LU</th>
+                    <th scope="col">DNI</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Fecha de Nacimiento</th>
+                    <th scope="col">Domicilio</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="alumno : ${listadoAlumnos}">
+                    <td th:text="${alumno.lu}"></td>
+                    <td th:text="${alumno.dni}"></td>
+                    <td th:text="${alumno.nombre}"></td>
+                    <td th:text="${alumno.apellido}"></td>
+                    <td th:text="${alumno.email}"></td>
+                    <td th:text="${alumno.telefono}"></td>
+                    <td th:text="${alumno.fnacimiento}"></td>
+                    <td th:text="${alumno.domicilio}"></td>
+                    <td class="btn-container">
+                        <a th:href="@{/modificarAlumno/{lu}(lu=${alumno.lu})}" class="btn btn-warning">Modificar</a>
+                        <a th:href="@{/eliminarAlumno/{lu}(lu=${alumno.lu})}" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a th:href="@{/formularioAlumno}" class="btn btn-primary">Agregar Alumno</a>
+    </div>
+    <footer>
+        <br>
+        <div data-th-replace="~{/fragments/footer::footerEdit}"></div>
+    </footer>
+    <script data-th-src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
