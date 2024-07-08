@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" data-th-href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+    <title>Formulario Alumno</title>
+    <style>
+        body {
+            background-color: #DFDFDF;
+        }
+        .mt-4 {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+            padding: 20px; 
+        }
+    </style>
+</head>
+<body>
+    <header data-th-replace="~{/fragments/header::headerEdit}"> </header>
+
+    <div class="container mt-4">
+        <h1 class="display-4 mb-4 text-center" th:text="${bandera} ? 'Modificar Alumno' : 'Formulario Alumno'"></h1>
+        <form th:action="@{/guardarAlumno}" th:object="${nuevoAlumno}" method="post" class="row g-3 border rounded p-4 bg-light">
+            <div class="col-md-6 mb-3">
+                <label for="lu" class="form-label">LU</label>
+                <input type="text" class="form-control" id="lu" th:field="*{lu}" placeholder="Ingrese su Libreta Universitaria asi: lu_XX." th:readonly="${bandera}">
+                <span th:if="${#fields.hasErrors('lu')}" th:errors="*{lu}" class="form-text text-danger">LU Error</span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="dni" class="form-label">DNI</label>
+                <input type="text" class="form-control" id="dni" th:field="*{dni}" placeholder="Ingrese su DNI">
+                <span th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}" class="form-text text-danger">DNI Error</span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" th:field="*{nombre}" placeholder="Ingrese su nombre">
+                <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="form-text text-danger">Nombre Error</span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="apellido" class="form-label">Apellido</label>
+                <input type="text" class="form-control" id="apellido" th:field="*{apellido}" placeholder="Ingrese su apellido">
+                <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}" class="form-text text-danger">Apellido Error</span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" th:field="*{email}" placeholder="Ingrese su email">
+                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="form-text text-danger">Email Error</span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="telefono" class="form-label">Teléfono</label>
+                <input type="text" class="form-control" id="telefono" th:field="*{telefono}" placeholder="Ingrese su nro de telefono">
+                <span th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}" class="form-text text-danger">Teléfono Error</span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="fnacimiento" class="form-label">Fecha de Nacimiento</label>
+                <input type="date" class="form-control" id="fnacimiento" th:field="*{fnacimiento}" placeholder="Ingrese su Fecha de Nacimiento">
+                <span th:if="${#fields.hasErrors('fnacimiento')}" th:errors="*{fnacimiento}" class="form-text text-danger">Fecha de Nacimiento Error</span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="domicilio" class="form-label">Domicilio</label>
+                <input type="text" class="form-control" id="domicilio" th:field="*{domicilio}" placeholder="Ingrese su domicilio">
+                <span th:if="${#fields.hasErrors('domicilio')}" th:errors="*{domicilio}" class="form-text text-danger">Domicilio Error</span>
+            </div>
+            <input type="hidden" th:field="*{estado}" value="true"/>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary" th:text="${bandera} ? 'Modificar' : 'Guardar'"></button>
+                <a th:href="@{/mostrarAlumnos}" class="btn btn-secondary ms-2">Ver Alumnos</a>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        <br>
+        <div data-th-replace="~{/fragments/footer::footerEdit}"></div>
+    </footer>
+
+    <script data-th-src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
