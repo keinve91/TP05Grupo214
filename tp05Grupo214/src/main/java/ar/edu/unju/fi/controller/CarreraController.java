@@ -15,11 +15,12 @@ import jakarta.validation.Valid;
 
 @Controller
 public class CarreraController {
-    @Autowired
-    Carrera nuevaCarrera;
 
     @Autowired
-    CarreraService carreraService;
+    private Carrera nuevaCarrera;
+
+    @Autowired
+    private CarreraService carreraService;
 
     @GetMapping("/formularioCarrera")
     public ModelAndView getFormCarrera() {
