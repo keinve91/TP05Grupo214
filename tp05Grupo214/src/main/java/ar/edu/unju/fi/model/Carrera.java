@@ -1,9 +1,15 @@
 package ar.edu.unju.fi.model;
 
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -31,5 +37,16 @@ public class Carrera {
 	private int cantidadAnios;
 	
 	private Boolean estado;
+	
+	@OneToMany(mappedBy = "carrera")
+    private List<Materia> materias;
+
+    @ManyToMany
+    @JoinTable(
+        name = "carrera_alumno",
+        joinColumns = @JoinColumn(name = "codigo"),
+        inverseJoinColumns = @JoinColumn(name = "lu")
+    )
+    private List<Alumno> alumnos;
     
 }

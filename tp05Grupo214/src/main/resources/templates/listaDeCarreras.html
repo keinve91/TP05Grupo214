@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css">
-<title>Lista de Carreras</title>
-<style>
-    .container {
-        margin-top: 20px;
-    }
-    .table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-bottom: 20px;
-    }
-    .table th, .table td {
-        border: 1px solid #dee2e6;
-        padding: 8px;
-        text-align: center;
-    }
-    .thead-dark {
-        background-color: #343a40;
-        color: white;
-    }
-    .btn-container {
-        white-space: nowrap;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css">
+    <title>Lista de Carreras</title>
+    <style>
+        .container {
+            margin-top: 20px;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .table th, .table td {
+            border: 1px solid #dee2e6;
+            padding: 8px;
+            text-align: center;
+        }
+        .thead-dark {
+            background-color: #343a40;
+            color: white;
+        }
+        .btn-container {
+            white-space: nowrap;
+        }
+    </style>
 </head>
 <body>
 <header th:replace="fragments/header :: headerEdit"></header>
 <div class="container mt-4">
-    <div class="container fs-4">
+    <div class="fs-4">
         <h1 class="display-4 mb-4 text-center">Listado Carrera</h1>
         <table class="table table-striped">
             <thead class="thead-dark">
@@ -50,6 +50,7 @@
                     <td class="btn-container">
                         <a th:href="@{'/eliminarCarrera/' + ${carrera.codigo}}" class="btn btn-danger">Eliminar</a>
                         <a th:href="@{'/modificarCarrera/' + ${carrera.codigo}}" class="btn btn-warning">Modificar</a>
+                        <a th:href="@{'/alumnosPorCarrera/' + ${carrera.codigo}}" class="btn btn-info">Ver Alumnos</a>
                     </td>
                 </tr>
             </tbody>
