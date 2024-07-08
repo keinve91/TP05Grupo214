@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css">
+<title>Alumnos de la Carrera</title>
+<style>
+    .container {
+        margin-top: 20px;
+    }
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+    .table th, .table td {
+        border: 1px solid #dee2e6;
+        padding: 8px;
+        text-align: center;
+    }
+    .thead-dark {
+        background-color: #343a40;
+        color: white;
+    }
+    .btn-container {
+        white-space: nowrap;
+    }
+</style>
+</head>
+<body>
+<header th:replace="fragments/header :: headerEdit"></header>
+<div class="container mt-4">
+    <div class="fs-4">
+        <h1 class="display-4 mb-4 text-center">Alumnos de la Carrera: <span th:text="${carrera.nombre}"></span></h1>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">LU</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="alumno : ${listadoAlumnos}">
+                    <td th:text="${alumno.lu}"></td>
+                    <td th:text="${alumno.nombre}"></td>
+                    <td th:text="${alumno.apellido}"></td>
+                    <td th:text="${alumno.email}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <a th:href="@{/mostrarCarreras}">
+            <button type="button" class="btn btn-primary">Volver al Listado de Carreras</button>
+        </a>
+    </div>
+</div>
+<footer>
+    <br>
+    <div th:replace="fragments/footer :: footerEdit"></div>
+</footer>
+<script src="/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
