@@ -58,7 +58,8 @@
                         <td class="btn-container">
                             <a th:href="@{'/borrarMateria/' + ${materia.codigo}}" class="btn btn-danger">Eliminar</a>
                             <a th:href="@{'/modificarMateria/' + ${materia.codigo}}" class="btn btn-warning">Modificar</a>
-                            <a th:href="@{'/filtrarAlumnos/' + ${materia.codigo}}" class="btn btn-info">Filtrar Alumnos</a>
+                            <a data-th-href="@{'/filtrarAlumnos/'+${materia.codigo}}" 
+						class="btn btn-danger">Filtrar Alumnos</a>
                         </td>
                     </tr>
                 </tbody>
