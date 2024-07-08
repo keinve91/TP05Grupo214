@@ -39,7 +39,6 @@ import lombok.ToString;
 public class Materia {
 	@Id
 	@NotBlank(message="Este campo es obligatorio.")
-	@Size(min=4, message="El nombre debe contener como mínimo 4 caracteres")
 	@Pattern(regexp = "^cod[0-9]+$", message = "El legajo debe iniciar con cod y número de codigo. Ejemplo: cod1,cod2")
 	private String codigo;
 	

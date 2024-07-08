@@ -27,7 +27,7 @@
             <div class="col-md-6 mb-3">
                <label for="codigo" class="form-label">Código</label> <input
 					type="text" class="form-control" id="codigo"
-					data-th-field="*{codigo}" data-th-readonly="${flag}">
+					data-th-field="*{codigo}" data-th-readonly="${flag}" placeholder="Ingrese un Codigo." th:classappend="${#fields.hasErrors('codigo')} ? 'is-invalid' : ''" >
 				<p class="form-text text-danger"
 					data-th-if="${#fields.hasErrors('codigo')}"
 					data-th-errors="*{codigo}"></p>
@@ -36,7 +36,7 @@
             <div class="col-md-6 mb-3">
 <label for="nombre" class="form-label">Nombre Materia</label> <input
 					type="text" class="form-control" id="nombre"
-					data-th-field="*{nombre}">
+					data-th-field="*{nombre}" placeholder="Ingrese un nombre para la materia." th:classappend="${#fields.hasErrors('nombre')} ? 'is-invalid' : ''">
 				<p class="form-text text-danger"
 					data-th-if="${#fields.hasErrors('nombre')}"
 					data-th-errors="*{nombre}"></p>
@@ -46,7 +46,7 @@
             <div class="col-md-6 mb-3">
             	<label for="curso" class="form-label">Curso</label> <input
 					type="text" class="form-control" id="curso"
-					data-th-field="*{curso}">
+					data-th-field="*{curso}" placeholder="Ingrese un curso para la materia." th:classappend="${#fields.hasErrors('curso')} ? 'is-invalid' : ''">
 				<p class="form-text text-danger"
 					data-th-if="${#fields.hasErrors('curso')}"
 					data-th-errors="*{curso}"></p>
@@ -55,7 +55,7 @@
 
             <div class="col-md-6 mb-3">
                 <label for="duracion" class="form-label">Cantidad de horas</label>
-                <input id="duracion" name="duracion" type="number" class="form-control" th:field="*{duracion}">
+                <input id="duracion" name="duracion" type="number" class="form-control" th:field="*{duracion}" placeholder="Ingrese la duracion de la materia." th:classappend="${#fields.hasErrors('duracion')} ? 'is-invalid' : ''">
                 <p class="form-text text-danger" th:if="${#fields.hasErrors('duracion')}" th:errors="*{duracion}"></p>
             </div>
 
@@ -79,7 +79,7 @@
             </div>
 
             <div class="col-md-6 mb-3">
-                <label class="form-label" for="carreraa">Carrera</label> <select
+                <label class="form-label" for="carrera">Carrera</label> <select
 					class="form-select" id="carrera" data-th-field="*{carrera.codigo}"
 					required>
 					<option value="">Seleccionar Carrera</option>
@@ -89,7 +89,7 @@
             </div>
 
             <div class="col-12">
-            <button type="submit" class="btn btn-primary">Guardar Docente</button>
+            <button type="submit" class="btn btn-primary">Guardar Materia</button>
             <a href="/mostrarMaterias" class="btn btn-secondary ms-2">Ver Materias</a>
 
                 

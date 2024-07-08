@@ -81,9 +81,9 @@ public class MateriaController {
 		Materia materia = materiaService.buscarMateria(codigo);
 		ModelAndView modelView = new ModelAndView("formMateria");
 		modelView.addObject("nuevaMateria", materia);
+		modelView.addObject("flag", false);
 		modelView.addObject("listadoDocentes", docenteService.mostrarDocentesDTO());
 		modelView.addObject("listadoCarreras", carreraService.mostrarCarrerasDTO());
-		modelView.addObject("flag", true);
 		return modelView;
 	}
 
@@ -93,10 +93,10 @@ public class MateriaController {
 		try {
 			if (result.hasErrors()) {
 				modelView.addObject("nuevaMateria", materiaModificada);
+				modelView.setViewName("formMateria");
+				modelView.addObject("flag", true);
 				modelView.addObject("listadoDocentes", docenteService.mostrarDocentesDTO());
 				modelView.addObject("listadoCarreras", carreraService.mostrarCarrerasDTO());
-				modelView.setViewName("formMateria");
-				modelView.addObject("flag", false);
 			} else {
 				materiaModificada.setCarrera(carreraService.buscarCarrera(materiaModificada.getCarrera().getCodigo()));
 				materiaModificada.setDocente(docenteService.buscarDocente(materiaModificada.getDocente().getLegajo()));
