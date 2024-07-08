@@ -149,5 +149,11 @@ public class AlumnoController {
         modelView.addObject("listadoAlumnos", alumnos);
         return modelView;
     }
+  	@GetMapping("/filtrarAlumnos/{codigo}")
+	public ModelAndView filtrarLosAlumnos(@PathVariable(name="codigo") String codigo) {
+		ModelAndView modelView = new ModelAndView("listaDeAlumnos");
+		modelView.addObject("listadoAlumnos", alumnoService.filtrarAlumnos(codigo));
+		return modelView;
+	}
   }
 
