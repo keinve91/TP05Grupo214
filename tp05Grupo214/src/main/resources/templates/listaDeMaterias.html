@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css">
+<title>Lista de Materias</title>
+<style>
+    .container {
+        margin-top: 20px;
+    }
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+    .table th, .table td {
+        border: 1px solid #dee2e6;
+        padding: 8px;
+        text-align: center;
+    }
+    .thead-dark {
+        background-color: #343a40;
+        color: white;
+    }
+    .btn-container {
+        white-space: nowrap;
+    }
+</style>
+</head>
+<body>
+    <header th:replace="fragments/header :: headerEdit"></header>
+    <div class="container mt-4">
+        <div class="container fs-4">
+            <h1 class="display-4 mb-4 text-center">Listado Materias</h1>
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Codigo</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Curso</th>
+                        <th scope="col">Duracion</th>
+                        <th scope="col">Modalidad</th>
+                        <th scope="col">Docente</th>
+                        <th scope="col">Carrera</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="materia : ${listadoMaterias}">
+                        <td th:text="${materia.codigo}"></td>
+                        <td th:text="${materia.nombre}"></td>
+                        <td th:text="${materia.curso}"></td>
+                        <td th:text="${materia.duracion}"></td>
+                        <td th:text="${materia.modalidad ? 'Presencial' : 'Virtual'}"></td>
+                        <td th:text="${materia.docente.nombre}"></td>
+                        <td th:text="${materia.carrera.nombre}"></td>
+                        <td class="btn-container">
+                            <a th:href="@{'/eliminarMateria/' + ${materia.codigo}}" class="btn btn-danger">Eliminar</a>
+                            <a th:href="@{'/modificarMateria/' + ${materia.codigo}}" class="btn btn-warning">Modificar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="/formularioMateria">
+                <button type="button" class="btn btn-primary">Volver al Formulario</button>
+            </a>
+        </div>
+    </div>
+    <footer>
+        <br>
+        <div th:replace="fragments/footer :: footerEdit"></div>
+    </footer>
+    <script src="/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

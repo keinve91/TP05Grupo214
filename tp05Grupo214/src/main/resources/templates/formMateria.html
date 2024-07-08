@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" data-th-href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+
+<title>Formulario Materia</title>
+<style>
+    body {
+        background-color: #DFDFDF; /* Color de fondo para el cuerpo de la página */
+    }
+    .mt-4 {
+        background-color: #ffffff; /* Color de fondo para el contenedor con mt-4 */
+        border-radius: 8px; /* Borde redondeado */
+        box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra ligera */
+        padding: 20px; /* Espaciado interno */
+    }
+</style>
+</head>
+<body>
+    <header data-th-replace="~{/fragments/header::headerEdit}"></header>
+    
+    <div class="container mt-4">
+        <h1 class="display-4 mb-4 text-center">Formulario Materia</h1>
+        <form data-th-object="${nuevaMateria}"
+              data-th-action="${flag}?@{/modificarMateria}:@{/guardarMateria}"
+              method="post" class="row g-3 border rounded p-4 bg-light">
+            <div class="col-md-6 mb-3">
+                <label for="codigo" class="form-label">Codigo Materia</label>
+                <input type="text" class="form-control" id="codigo" data-th-field="*{codigo}" required data-th-readonly="${flag}">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="nombre" class="form-label">Nombre Materia</label>
+                <input type="text" class="form-control" id="nombre" data-th-field="*{nombre}" placeholder="Ingrese un nombre" th:classappend="${#fields.hasErrors('nombre')} ? 'is-invalid' : ''">
+                <p class="form-text text-danger" data-th-if="${#fields.hasErrors('nombre')}" data-th-errors="*{nombre}"></p>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="curso" class="form-label">Curso Materia</label>
+                <input id="curso" name="curso" type="text" class="form-control" placeholder="Ingrese curso" data-th-field="*{curso}">
+                <p class="form-text text-danger" data-th-if="${#fields.hasErrors('curso')}" data-th-errors="*{curso}"></p>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="duracion" class="form-label">Cantidad de horas</label>
+                <input id="duracion" name="duracion" type="number" class="form-control" data-th-field="*{duracion}">
+                <p class="form-text text-danger" data-th-if="${#fields.hasErrors('duracion')}" data-th-errors="*{duracion}"></p>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="modalidad" class="form-label">Modalidad</label><br>
+                <label for="presencial">Presencial</label>
+                <input type="radio" id="presencial" name="modalidad" value="true" data-th-field="*{modalidad}"><br>
+                <label for="virtual">Virtual</label>
+                <input type="radio" id="virtual" name="modalidad" value="false" data-th-field="*{modalidad}"><br>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="docente" class="form-label">Docente</label>
+                <select id="docente" data-th-field="*{docente.legajo}" class="form-control" required>
+                    <option value="">Seleccionar Docente</option>
+                    <option data-th-value="${d.legajo}" data-th-each="d:${listadoDocentes}" data-th-text="${d.nombre}"></option>
+                </select>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="carrera" class="form-label">Carrera</label>
+                <select id="carrera" data-th-field="*{carrera.codigo}" class="form-control" required>
+                    <option value="">Seleccionar Carrera</option>
+                    <option data-th-value="${c.codigo}" data-th-each="c:${listadoCarreras}" data-th-text="${c.nombre}"></option>
+                </select>
+            </div>
+
+            <input type="hidden" id="estado" name="estado" class="form-control" data-th-field="*{estado}">
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Guardar Materia</button>
+                <a href="/mostrarMaterias" class="btn btn-secondary ms-2">Ver Materias</a>
+            </div>
+        </form>
+    </div>
+    
+    <footer>
+        <br>
+        <div data-th-replace="~{/fragments/footer::footerEdit}"></div>
+    </footer>
+
+    <script data-th-src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
