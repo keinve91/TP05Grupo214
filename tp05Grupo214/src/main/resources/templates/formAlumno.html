@@ -63,6 +63,13 @@
                 <input type="text" class="form-control" id="domicilio" th:field="*{domicilio}" placeholder="Ingrese su domicilio">
                 <span th:if="${#fields.hasErrors('domicilio')}" th:errors="*{domicilio}" class="form-text text-danger">Domicilio Error</span>
             </div>
+            <div class="mb-3">
+                <label for="carrera" class="form-label">Carrera</label>
+                <select class="form-select" id="carrera" th:field="*{carrera.codigo}" required>
+                    <option value="" disabled selected>Seleccione una carrera</option>
+                    <option th:each="carrera : ${listadoCarreras}" th:value="${carrera.codigo}" th:text="${carrera.nombre}"></option>
+                </select>
+            </div>
             <input type="hidden" th:field="*{estado}" value="true"/>
             <div class="col-12">
                 <button type="submit" class="btn btn-primary" th:text="${bandera} ? 'Modificar' : 'Guardar'"></button>

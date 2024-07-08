@@ -2,11 +2,13 @@ package ar.edu.unju.fi.DTO;
 
 import java.time.LocalDate;
 
+
 import org.springframework.stereotype.Component;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import ar.edu.unju.fi.model.Carrera;
 
 @Getter
 @Setter
@@ -20,5 +22,6 @@ public class AlumnoDTO {
     private String email;
     private String telefono;
     private LocalDate fnacimiento;
+    private Carrera carrera;
     private String domicilio;
 }
