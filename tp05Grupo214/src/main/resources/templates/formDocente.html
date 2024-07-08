@@ -29,9 +29,12 @@ body {
 			data-th-action="${bandera}?@{/modificarDocente}:@{/guardarDocente}"
 			method="post" class="row g-3 border rounded p-4 bg-light">
         <div class="col-md-6 mb-3">
-            <label for="legajo" class="form-label">Legajo Docente</label>
+            <label for="legajo" class="form-label">Legajo Docente </label>
             <input type="text" class="form-control" id="legajo" 
-                   data-th-field="*{legajo}" required data-th-readonly="${bandera}">
+                   data-th-field="*{legajo}" data-th-readonly="${bandera}"  placeholder="Ingrese un legajo." th:classappend="${#fields.hasErrors('legajo')} ? 'is-invalid' : ''">
+                   	<p class="form-text text-danger"
+					data-th-if="${#fields.hasErrors('legajo')}"
+					data-th-errors="*{legajo}"></p>
         </div>
 
         <div class="col-md-6 mb-3">

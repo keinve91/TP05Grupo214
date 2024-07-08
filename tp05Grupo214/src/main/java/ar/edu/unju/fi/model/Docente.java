@@ -14,6 +14,9 @@ import lombok.Data;
 @Entity
 public class Docente {
 	@Id
+	
+	@NotBlank(message = "Este campo es Obligatorio.")
+    @Pattern(regexp = "^LEG_\\d{2}$", message = "El codigo debe ser 'LEG_xx'.")
 	private String legajo;
 
 	@NotBlank(message = "Este campo es Obligatorio.")
