@@ -2,6 +2,7 @@ package ar.edu.unju.fi.DTO;
 
 import org.springframework.stereotype.Component;
 
+import ar.edu.unju.fi.constantes.Modalidad;
 import ar.edu.unju.fi.model.Carrera;
 import ar.edu.unju.fi.model.Docente;
 import lombok.Getter;
@@ -13,12 +14,13 @@ import lombok.Setter;
 @NoArgsConstructor
 @Component
 public class MateriaDTO {
-	private String codigoMa;
-	private String nombreMa;
-	private String cursoMa;
-	private int duracionMa;
-	private Docente docenteMa;
-	private Carrera carreraMa;
-	private boolean modalidad;
+	private String codigo;
+	private String nombre;
+	private String curso;
+	private String duracion;
+	private Modalidad modalidad;
+	private Docente docente;
+	private Carrera carrera;
+	private boolean estado;
 
 }

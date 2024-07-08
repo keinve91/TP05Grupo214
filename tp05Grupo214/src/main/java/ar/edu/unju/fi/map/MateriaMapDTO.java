@@ -14,18 +14,18 @@ import ar.edu.unju.fi.model.Materia;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface MateriaMapDTO {
-	@Mapping(source="codigo",target="codigoMa")
-	@Mapping(source="nombre",target="nombreMa")
-	@Mapping(source="curso",target="cursoMa")
-	@Mapping(source="duracion",target="duracionMa")
-	@Mapping(source="docente",target="docenteMa")
-	@Mapping(source="carrera",target="carreraMa")
+	@Mapping(source="codigo",target="codigo")
+	@Mapping(source="nombre",target="nombre")
+	@Mapping(source="curso",target="curso")
+	@Mapping(source="duracion",target="duracion")
+	@Mapping(source="docente",target="docente")
+	@Mapping(source="carrera",target="carrera")
 	@Mapping(source = "modalidad", target = "modalidad")
 
 	MateriaDTO convertirMateriaAMateriaDTO(Materia m);
-	
 	@Mapping(target = "estado", ignore = true)
-	@InheritInverseConfiguration
+
+		@InheritInverseConfiguration
 	Materia convertirMateriaDTOAMateria(MateriaDTO m);
 	
 	List<MateriaDTO> convertirListaMateriasAListaMateriasDTO(List<Materia> materias);
